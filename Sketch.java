@@ -1,38 +1,59 @@
 import processing.core.PApplet;
 
 public class Sketch extends PApplet {
-	
-  /**
-   * Called once at the beginning of execution, put your size all in this method
-   */
+  public static void main(String[] args) {
+    PApplet.main("Sketch");
+  }
+
   public void settings() {
-    size(400, 400);
+    size(600, 600);
   }
 
-  /** 
-   * Called once at the beginning of execution.  Add initial set up
-   * values here i.e background, stroke, fill etc.
-   */
   public void setup() {
-    background(210, 255, 173);
+    background(0, 255 ,0);
+    drawSketches();
   }
 
   /**
-   * Called repeatedly, anything drawn to the screen goes here
-   */
-  public void draw() {
-    
+  * Draws smiley faces vertically and horizontally.
+  *
+  * @param size of the sketches that are displayed
+  * @param spacing between each sketch on the screen
+  */
+  public void drawSketches() {
+    int spacing = 85;
+    int numHorizontal = width / (spacing + 85);
+    int numVertical = height / (spacing + 85);
+
+      for (int i = 0; i < numHorizontal; i++) {
+        for (int j = 0; j < numVertical; j++) {
+            drawSketches(i * (spacing + 127), j * (spacing + 127), 85);
+      }
+    }
   }
 
-  /**
-   * Description
-   * 
-   * @param 
-   * @param 
-   * @return
-   * @author 
-   */
+    /**
+     * The sketch
+     *
+     * @param x coordinate
+     * @param y coordinate
+     * @param size
+     */
+    public void drawSketches(int x, int y, int size) {
+      // Draw face
+      ellipseMode(CENTER);
+      fill(255, 0, 0);
+      ellipse(x + size / 2, y + size / 2, size, size);
 
-  
-  
+      // Draw eyes
+      fill(255, 255, 0);
+      ellipse(x + size / 3, y + size / 3, size / 7, size / 7);
+      ellipse(x + 2 * size / 3, y + size / 3, size / 7, size / 7);
+
+      // Draw mouth
+      noFill();
+      strokeWeight(1);
+      arc(x + size / 2, y + 2 * size / 3, size / 2, size / 4, 0, PI);
+    }
 }
+
