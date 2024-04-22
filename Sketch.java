@@ -15,7 +15,7 @@ public class Sketch extends PApplet {
   }
 
   /**
-  * Draws smiley faces vertically and horizontally.
+  * Draws circles vertically and horizontally.
   *
   * @param size of the sketches that are displayed
   * @param spacing between each sketch on the screen
@@ -32,18 +32,18 @@ public class Sketch extends PApplet {
     }
   }
 
-    /**
-     * The sketch
-     *
-     * @param x coordinate
-     * @param y coordinate
-     * @param size
-     */
-    public void drawSketches(int x, int y, int size) {
-      // Draw face
-      ellipseMode(CENTER);
-      fill(255, 0, 0);
-      ellipse(x + size / 2, y + size / 2, size, size);
+  /**
+  * The sketch
+  *
+  * @param x coordinate
+  * @param y coordinate
+  * @param size
+  */
+  public void drawSketches(int x, int y, int size) {
+    // Draw face
+    ellipseMode(CENTER);
+    fill(255, 0, 0);
+    ellipse(x + size / 2, y + size / 2, size, size);
 
       // Draw eyes
       fill(255, 255, 0);
@@ -53,7 +53,7 @@ public class Sketch extends PApplet {
       // Draw mouth
       noFill();
       strokeWeight(1);
-      arc(x + size / 2, y + 2 * size / 3, size / 2, size / 4, 0, PI);
+      ellipse(x + 2 * size / 4, y + size / 2, size / 4, size / 4);
     }
 }
 
