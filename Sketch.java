@@ -10,24 +10,28 @@ public class Sketch extends PApplet {
   }
 
   public void setup() {
-    background(0, 255 ,0);
+    background(128, 128 ,128);
     drawSketches();
+   float flowerX = 50;
+   float flowerY = 50;
+   float petalSize = 75;
   }
 
   /**
   * Draws circles vertically and horizontally.
-  *
   * @param size of the sketches that are displayed
   * @param spacing between each sketch on the screen
   */
+
   public void drawSketches() {
-    int spacing = 85;
-    int numHorizontal = width / (spacing + 85);
-    int numVertical = height / (spacing + 85);
+    
+    int spacing = 100;
+    int numHorizontal = width / (spacing + 100);
+    int numVertical = height / (spacing + 100);
 
       for (int i = 0; i < numHorizontal; i++) {
         for (int j = 0; j < numVertical; j++) {
-            drawSketches(i * (spacing + 127), j * (spacing + 127), 85);
+            drawSketches(i * (spacing + 167), j * (spacing + 167), 85);
       }
     }
   }
@@ -35,25 +39,32 @@ public class Sketch extends PApplet {
   /**
   * The sketch
   *
-  * @param x coordinate
-  * @param y coordinate
-  * @param size
+  * @param flowerX 
+  * @param flowerY
+  * @param petalSize
   */
-  public void drawSketches(int x, int y, int size) {
-    // Draw face
-    ellipseMode(CENTER);
-    fill(255, 0, 0);
-    ellipse(x + size / 2, y + size / 2, size, size);
 
-      // Draw eyes
-      fill(255, 255, 0);
-      ellipse(x + size / 3, y + size / 3, size / 7, size / 7);
-      ellipse(x + 2 * size / 3, y + size / 3, size / 7, size / 7);
+  public void drawSketches(int flowerX, int flowerY, int petalSize) {
+// upper-left petal
+ellipse(flowerX - 50, flowerY - 50,
+  petalSize, petalSize);
 
-      // Draw mouth
-      noFill();
-      strokeWeight(1);
-      ellipse(x + 2 * size / 4, y + size / 2, size / 4, size / 4);
+// upper-right petal
+ellipse(flowerX + 50, flowerY - 50,
+  petalSize, petalSize);
+
+// lower-left petal
+ellipse(flowerX - 50, flowerY + 50,
+  petalSize, petalSize);
+
+// lower-right petal
+ellipse(flowerX + 50, flowerY + 50,
+  petalSize, petalSize);
+
+// center petal
+fill(255, 0, 0);
+ellipse(flowerX, flowerY,
+  petalSize, petalSize);
     }
 }
 
