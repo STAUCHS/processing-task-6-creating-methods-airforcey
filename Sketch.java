@@ -12,9 +12,6 @@ public class Sketch extends PApplet {
   public void setup() {
     background(128, 128 ,128);
     drawSketches();
-   float flowerX = 50;
-   float flowerY = 50;
-   float petalSize = 75;
   }
 
   /**
@@ -25,19 +22,19 @@ public class Sketch extends PApplet {
 
   public void drawSketches() {
     
-    int spacing = 100;
-    int numHorizontal = width / (spacing + 100);
-    int numVertical = height / (spacing + 100);
+    int spacing = 75;
+    int horizontal = width / (spacing + 40);
+    int vertical = height / (spacing + 40);
 
-      for (int i = 0; i < numHorizontal; i++) {
-        for (int j = 0; j < numVertical; j++) {
+      for (int i = 0; i < horizontal; i++) {
+        for (int j = 0; j < vertical; j++) {
             drawSketches(i * (spacing + 167), j * (spacing + 167), 85);
       }
     }
   }
 
   /**
-  * The sketch
+  * flower sketch 
   *
   * @param flowerX 
   * @param flowerY
@@ -64,7 +61,8 @@ ellipse(flowerX + 50, flowerY + 50,
 // center petal
 fill(255, 0, 0);
 ellipse(flowerX, flowerY,
-  petalSize, petalSize);
-    }
+petalSize, petalSize);
+
+  }
 }
 
