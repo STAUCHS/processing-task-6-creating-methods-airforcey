@@ -1,38 +1,68 @@
 import processing.core.PApplet;
 
 public class Sketch extends PApplet {
-	
-  /**
-   * Called once at the beginning of execution, put your size all in this method
-   */
+  public static void main(String[] args) {
+    PApplet.main("Sketch");
+  }
+
   public void settings() {
-    size(400, 400);
+    size(600, 600);
   }
 
-  /** 
-   * Called once at the beginning of execution.  Add initial set up
-   * values here i.e background, stroke, fill etc.
-   */
   public void setup() {
-    background(210, 255, 173);
+    background(128, 128 ,128);
+    drawSketches();
   }
 
   /**
-   * Called repeatedly, anything drawn to the screen goes here
-   */
-  public void draw() {
+  * Draws circles vertically and horizontally.
+  * @param size of the sketches that are displayed
+  * @param spacing between each sketch on the screen
+  */
+
+  public void drawSketches() {
     
+    int spacing = 75;
+    int horizontal = width / (spacing + 40);
+    int vertical = height / (spacing + 40);
+
+      for (int i = 0; i < horizontal; i++) {
+        for (int j = 0; j < vertical; j++) {
+            drawSketches(i * (spacing + 167), j * (spacing + 167), 85);
+      }
+    }
   }
 
   /**
-   * Description
-   * 
-   * @param 
-   * @param 
-   * @return
-   * @author 
-   */
+  * flower sketch 
+  *
+  * @param flowerX 
+  * @param flowerY
+  * @param petalSize
+  */
 
-  
-  
+  public void drawSketches(int flowerX, int flowerY, int petalSize) {
+// upper-left petal
+ellipse(flowerX - 50, flowerY - 50,
+  petalSize, petalSize);
+
+// upper-right petal
+ellipse(flowerX + 50, flowerY - 50,
+  petalSize, petalSize);
+
+// lower-left petal
+ellipse(flowerX - 50, flowerY + 50,
+  petalSize, petalSize);
+
+// lower-right petal
+ellipse(flowerX + 50, flowerY + 50,
+  petalSize, petalSize);
+
+// center petal
+fill(255, 0, 0);
+ellipse(flowerX, flowerY,
+petalSize, petalSize);
+
+  }
 }
+
